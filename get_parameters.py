@@ -16,15 +16,6 @@ u2 = np.mean(data_1, axis=0)
 Sigma1 = np.cov(data_0, rowvar=False)
 Sigma2 = np.cov(data_1, rowvar=False)
 
-u1T = np.transpose(u1)
-u2T = np.transpose(u2)
-invSigma = np.linalg.inv(Sigma1)
-
-
-term2 = invSigma@u1-invSigma@u2
-np.linalg.inv()
-xBoundry = [-u2T@invSigma@u2+u1T@invSigma@u1]
-
 # Output the results
 print("probability of p(y=0):", len(data_0)/(len(data_0)+len(data_1)))
 print("probability of p(y=1):", len(data_1)/(len(data_0)+len(data_1)))
@@ -32,5 +23,3 @@ print("Mean vector for y=0 (u1):", u1)
 print("Mean vector for y=1 (u2):", u2)
 print("Covariance matrix for y=0 (Sigma1):\n", Sigma1)
 print("Covariance matrix for y=1 (Sigma2):\n", Sigma2)
-print(term2)
-print("x_boundry is:", xBoundry)
